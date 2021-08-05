@@ -5,7 +5,7 @@ function error_pages() {
   return (
     <div className="error">
       <h1 className="error-text">404 Page Not Found</h1>
-      <img className="error-img" src={Image} />
+      <img className="error-img" alt="" src={Image} />
     </div>
   );
 }
