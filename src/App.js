@@ -16,6 +16,7 @@ class App extends React.Component {
     };
   }
   unsubscibeFromAuth = null;
+  
 
   componentDidMount() {
     this.unsubscibeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
@@ -28,7 +29,6 @@ class App extends React.Component {
               ...snapShot.data(),
             },
           });
-          console.log(this.state);
         });
       } else {
         this.setState({ currentUser: userAuth });
@@ -41,6 +41,7 @@ class App extends React.Component {
   }
 
   render() {
+  
     return (
       <div>
         <Header currentUser={this.state.currentUser} />
