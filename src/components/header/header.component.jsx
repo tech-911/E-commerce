@@ -5,6 +5,7 @@ import { ReactComponent as Logo } from "../../assets/crown.svg.svg";
 import { connect } from "react-redux";
 import { auth } from "../../firebase/firebase.utils";
 function Header({ currentUser }) {
+  
   return (
     <div className="header">
       <Link to="/" className="logo-container">

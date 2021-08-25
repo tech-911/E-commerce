@@ -32,7 +32,7 @@ class App extends React.Component {
 
   componentWillUnmount() {
     this.unsubscibeFromAuth();
-  } 
+  }
 
   render() {
     return (
@@ -42,14 +42,23 @@ class App extends React.Component {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={ShopPage} />
           <Route exact path="/404" component={Error} />
-          <Route exact path="/signin" component={SignIn_signUp} />
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              this.props.currentUser ? <Redirect to="/" /> : <SignIn_signUp />
+            }
+          />
           <Redirect to="/404" />
         </Switch>
       </div>
     );
   }
 }
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
