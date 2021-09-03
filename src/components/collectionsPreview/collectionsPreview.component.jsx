@@ -8,8 +8,8 @@ function CollectionsPreview({ title, items }) {
       <div className="preview">
         {items
           .filter((value, iex) => iex < 4)
-          .map(({ id, ...otherItemProps }) => {
-            return <CollectionItem key={items.id} {...otherItemProps} />;
+          .map((item) => {
+            return <CollectionItem key={item.id} item={item} />;
           })}
       </div>
     </div>

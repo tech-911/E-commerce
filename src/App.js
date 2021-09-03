@@ -7,7 +7,7 @@ import Error from "./pages/404/error_pages";
 import Header from "./components/header/header.component";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.actions";
-import SignIn_signUp from "./pages/sign-in-and-sign-up-page/sign-in-and-sign-up-page.components";
+import SignInSignUp from "./pages/sign-in-and-sign-up-page/sign-in-and-sign-up-page.components";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 class App extends React.Component {
@@ -46,7 +46,7 @@ class App extends React.Component {
             exact
             path="/signin"
             render={() =>
-              this.props.currentUser ? <Redirect to="/" /> : <SignIn_signUp />
+              this.props.currentUser ? <Redirect to="/" /> : <SignInSignUp />
             }
           />
           <Redirect to="/404" />
